@@ -1,0 +1,100 @@
+package cryptozoo;
+import java.util.*;
+public class CryptoZoo {
+    static CryptoZoo menagerie = new CryptoZoo();
+    static String name;
+    static ArrayList<String> animals = new ArrayList<String>();
+    public static void main(String[] args) {
+        System.out.println("Welcome to CryptoZoo, please enter your name to begin.");
+        Scanner managername  = new Scanner(System.in);
+        name = managername.nextLine().toLowerCase();
+        Zoo.list(name, animals);
+    }
+}
+
+
+package cryptozoo;
+import java.util.*;
+public class Zoo {
+    public static void main(String[] args){
+        
+    }
+    ArrayList<String> creatures = new ArrayList<String>(10);
+    public static void list(String name, ArrayList animals){
+        String animal;
+        System.out.println("Please enter ten animals to put in the Zoo.");
+        for (int i = 0; i < 10; i++) {
+            System.out.println("Please enter a animal");
+            Scanner animals2 = new Scanner(System.in);
+            animal = animals2.nextLine().toLowerCase();
+            animals.add(i, animals2);
+        }
+        System.out.println("These are the animals in your Zoo");
+        for (int i = 0; i < 10; i++) {
+            System.out.print(i + ": ");
+            animals.get(i);
+        }
+    }
+    public static void showAll(){
+
+    }
+}
+
+
+package cryptozoo;
+import java.util.*;
+public abstract class Animal implements ZooAnimal
+{
+    public static void main(String[] args)
+    {
+        
+    }
+}
+
+
+package cryptozoo;
+public class Mythical extends Animal
+{
+    public static void main(String[] args){
+        
+    }
+}
+
+
+package cryptozoo;
+public class Paranormal extends Animal
+{
+    public static void main(String[] args){
+        
+    }
+}
+
+
+package cryptozoo;
+public class LingerLing extends Animal
+{
+    public static void main(String[] args){
+        
+    }
+}
+
+
+package cryptozoo;
+public class FossilRelative extends LingerLing
+{
+    public static void main(String[] args){
+        
+    }
+}
+
+
+package cryptozoo;
+public interface ZooAnimal
+{
+    String foodtype = "";
+    int foodamount = 0;
+    public static void main(String[] args){
+        
+    }
+    
+}
