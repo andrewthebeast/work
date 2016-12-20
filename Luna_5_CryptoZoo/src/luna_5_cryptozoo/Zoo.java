@@ -17,6 +17,8 @@ public class Zoo {
         Animal animal1 = new Animal();
     }
     public static void showAll(){
-        
+        for(int i; i < 10; i++){
+            //print stuff here
+        }
     }
 }
