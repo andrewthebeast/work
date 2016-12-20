@@ -18,6 +18,8 @@ public abstract class Animal implements ZooAnimal{
         this.dangerrating = c;
     }
     public static void toString(){
-        
+        return name;
+        return orgin;
+        return dangerrating;
     }
 }
