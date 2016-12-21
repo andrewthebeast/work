@@ -12,7 +12,13 @@ public class Zoo {
     private ArrayList<Animal> creatures = new ArrayList<Animal>();// list of creatures
     static Scanner scan = new Scanner(System.in);//Scanner
     static String input;//String for Scanner
-    //method
+     /***************************************************************************
+     * Method: list()
+     * Description: sets elements in the arraylist creatures
+     * Parameters: classes mythical, paranormal, lingerling and creatures
+     * Pre-Conditions: none
+     * Post-Conditions: none
+     **************************************************************************/
     public static void list(){
         Mythical animal1 = new Mythical("Fairy", "Woods", 0, "dreams", 20);
         creatures.add(animal1);
@@ -31,7 +37,13 @@ public class Zoo {
         LingerLing animal8 = new LingerLing("", "", 0);
         
     }
-    //method
+     /***************************************************************************
+     * Method: showAll()
+     * Description: displays the creatures
+     * Parameters: arraylist dreatures
+     * Pre-Conditions: none
+     * Post-Conditions: displays the arraylist creature
+     **************************************************************************/
     public static void showAll(ArrayList creatures){
         System.out.println("Here are your animals.");
         for (int i = 0; i < creatures.size(); i++) {
