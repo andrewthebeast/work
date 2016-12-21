@@ -3,8 +3,8 @@
  * Author: Luna, Andrew
  * Date: December 19, 2016
  * Description: Creates a name origin and rating for animals
- * Input:
- * Output:
+ * Input: none
+ * Output: class constructor named animal
  ********************************************************************************/
 package luna_5_cryptozoo;
 import java.util.*;
@@ -13,7 +13,13 @@ public abstract class Animal implements ZooAnimal{
     private String origin;
     private int dangerrating;
     private boolean onTour = false;
-    //
+    /***************************************************************************
+     * Method: Animal()
+     * Description: makes a class constructor
+     * Parameters: name, orgin, and dangerrating
+     * Pre-Conditions: none
+     * Post-Conditions: set name, orgin and danger rating
+     **************************************************************************/
     public Animal(String a, String b, int c){
         this.name = a;
         this.origin = b;
