@@ -10,6 +10,13 @@ package luna_5_cryptozoo;
 public class Mythical extends Animal {
     private String foodType;
     private int foodAmt;
+     /***************************************************************************
+     * Method: Mythical()
+     * Description: makes a class constructor
+     * Parameters: name, orgin, and dangerrating, int, and int
+     * Pre-Conditions: none
+     * Post-Conditions: set name, orgin and danger rating, food type and sood amount
+     **************************************************************************/
     public Mythical(String name, String origin, int dangerrating, String type, int amt){
         super(name, origin, dangerrating);
         this.foodType = type;
