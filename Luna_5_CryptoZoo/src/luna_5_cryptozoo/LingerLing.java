@@ -10,7 +10,13 @@ package luna_5_cryptozoo;
 public class LingerLing extends Animal {
     private String foodType;
     private int foodAmt;
-    //
+     /***************************************************************************
+     * Method: LingerLing()
+     * Description: makes a class constructor
+     * Parameters: name, orgin, and dangerrating
+     * Pre-Conditions: none
+     * Post-Conditions: sets super
+     **************************************************************************/
     public LingerLing(String name, String origin, int dangerrating){
         super(name, origin, dangerrating);
     }
