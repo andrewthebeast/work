@@ -2,9 +2,9 @@
  * Program Filename: Mythical.java
  * Author: Luna, Andrew
  * Date: December 19, 2016
- * Description:
- * Input:
- * Output:
+ * Description: makes a class sonstructor and getters and setters.
+ * Input: animal
+ * Output: mythical class constructor, set food type, and set food amount.
  ********************************************************************************/
 package luna_5_cryptozoo;
 public class Mythical extends Animal {
