@@ -1,7 +1,7 @@
 /********************************************************************************
  * Program Filename: ZooAnimal.java
- * Author:
- * Date:
+ * Author: Luna, Andrew
+ * Date: December 19, 2016
  * Description:
  * Input:
  * Output:
