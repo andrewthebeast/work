@@ -2,15 +2,21 @@
  * Program Filename: Paranormal.java
  * Author: Luna, Andrew
  * Date: December 19, 2016
- * Description:
- * Input:
- * Output:
+ * Description: class constructor makes getters and setters
+ * Input: animal
+ * Output: mythical class constructor
  ********************************************************************************/
 package luna_5_cryptozoo;
 public class Paranormal extends Animal {
     private String foodType;
     private int foodAmt;
-    //
+     /***************************************************************************
+     * Method: Paranormal()
+     * Description: makes a class constructor
+     * Parameters: name, orgin, and dangerrating
+     * Pre-Conditions: none
+     * Post-Conditions: set name, orgin and danger rating, foodtype and foodamt
+     **************************************************************************/
     Paranormal(String name, String origin, int dangerrating){
         super(name, origin, dangerrating);
         foodType = "meat";
