@@ -8,8 +8,8 @@
  ********************************************************************************/
 package luna_5_cryptozoo;
 public class Paranormal extends Animal {
-    private String foodType;
-    private int foodAmt;
+    private String foodType;// states the food type
+    private int foodAmt;//states the food amount
      /***************************************************************************
      * Method: Paranormal()
      * Description: makes a class constructor
