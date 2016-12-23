@@ -2,14 +2,14 @@
  * Program Filename: LingerLing.java
  * Author: Luna, Andrew
  * Date: December 19, 2016
- * Description:
- * Input:
- * Output:
+ * Description: creates a class constructor and has getters and setters.
+ * Input: class animal
+ * Output: class constructor
  ********************************************************************************/
 package luna_5_cryptozoo;
 public class LingerLing extends Animal {
-    private String foodType;
-    private int foodAmt;
+    private String foodType;// sets the food type
+    private int foodAmt;// sets the food amount
      /***************************************************************************
      * Method: LingerLing()
      * Description: makes a class constructor
