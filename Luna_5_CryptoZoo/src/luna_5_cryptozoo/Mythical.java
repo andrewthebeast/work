@@ -8,8 +8,8 @@
  ********************************************************************************/
 package luna_5_cryptozoo;
 public class Mythical extends Animal {
-    private String foodType;
-    private int foodAmt;
+    private String foodType;// sets the food type
+    private int foodAmt;// sets the food amount
      /***************************************************************************
      * Method: Mythical()
      * Description: makes a class constructor
