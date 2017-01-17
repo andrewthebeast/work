@@ -11,17 +11,38 @@ import java.util.*;
 public class Luna_5_Connectfour {
     static char[][] board = new char[6][7];//makes the game board
     static int input;//collects input
+    static String playeronesname;
+    static String playertwosname;
         public static void main(String[] args) {
-        System.out.println("Please enter 1 to play");
-        //collects response
+        //collects player ones name
+        System.out.println("Please enter player one's name.");
+        Scanner playeronename = new Scanner(System.in);
+        playeronesname = playeronename.nextLine();
+        //collects player twos name
+        System.out.println("Please enter player two's name.");
+        Scanner playertwoname = new Scanner(System.in);
+        playertwosname = playertwoname.nextLine();
+        //starts the game
+        System.out.println("Please press enter to begin");
+        Scanner enter = new Scanner(System.in);
         String res;
-        Scanner reso = new Scanner(System.in);
-        res = reso.nextLine();
-        if(res.contains("1")){
-           game(); 
+        res = enter.nextLine();
+        if(res.contains("")){
+            //prints 10 lines
+            for(int i = 0;i < 10;i++){
+                System.out.println(" ");
+            }
+            player1();
         }
     }
-    public static void game(){
+    /***************************************************************************
+     * Method: player1()
+     * Description: Player ones turn
+     * Parameters: board, playeronesname, input
+     * Pre-Conditions: player has to begin the game
+     * Post-Conditions: player 
+     **************************************************************************/
+    public static void player1(){
         //player 1 move
         for (int i = 0; i < 6; i++) {
             System.out.print("X ");
@@ -31,7 +52,7 @@ public class Luna_5_Connectfour {
             System.out.println();
         }
         System.out.println("Player 1's turn");
-        System.out.println("what row would you like to place your chip?");
+        System.out.println("Which row would you like to place your chip in?");
         Scanner input1 = new Scanner(System.in);
         input = input1.nextInt();
         
