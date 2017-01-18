@@ -9,7 +9,7 @@
 package luna_5_connectfour;
 import java.util.*;
 public class Luna_5_Connectfour {
-    static char[][] board = new char[6][7];//makes the game board
+    static char[][] board = new char[7][7];//makes the game board
     static int input;//collects input
     static String playeronesname;
     static String playertwosname;
@@ -24,6 +24,8 @@ public class Luna_5_Connectfour {
         playertwosname = playertwoname.nextLine();
         //starts the game
         System.out.println("Please press enter to begin");
+        //System.out.println("●");
+        //System.out.println("○");
         Scanner enter = new Scanner(System.in);
         String res;
         res = enter.nextLine();
@@ -44,10 +46,11 @@ public class Luna_5_Connectfour {
      **************************************************************************/
     public static void player1(){
         //player 1 move
+        System.out.println(playeronesname +"'s turn!");
+        System.out.println("");
         for (int i = 0; i < 6; i++) {
-            System.out.print("X ");
             for (int j = 0; j < 7; j++) {
-                System.out.print(board[i][j] + "X ");
+                System.out.print(board[i][j] + "□");
             }
             System.out.println();
         }
@@ -55,7 +58,16 @@ public class Luna_5_Connectfour {
         System.out.println("Which row would you like to place your chip in?");
         Scanner input1 = new Scanner(System.in);
         input = input1.nextInt();
-        
+        input--;
+        for (int i = 0; i < 6; i++) {
+            for (int j = input; j < 7; j++) {
+                board[][input] = '●';
+                if(i > 0 && board[i][j] != '●' && board[i][j] != '○'){
+                    System.out.print(board[i][j] + "□");
+                }
+            }
+            System.out.println();
+        }
     }
 }
 
