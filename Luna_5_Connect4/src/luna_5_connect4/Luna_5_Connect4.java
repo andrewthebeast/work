@@ -37,9 +37,11 @@ public class Luna_5_Connect4 {
                 }
                 System.out.println("");
             }
+            //collects player 1's input
             System.out.println(p1name + "'s turn\nEnter the column to place your chip.");//space out the methods collects the players input
             p1Turn();
             if(p1Check() == true){
+                System.out.println(p1name + " Win's");
                 play = false;
                 break;
             }
@@ -50,6 +52,7 @@ public class Luna_5_Connect4 {
                 }
                 System.out.println("");
             }
+            //collects player2's input
             System.out.println(p2name + "'s turn\nEnter the column to place your chip.");//space out the methods collects the players input
             p2Turn();
         }
@@ -129,7 +132,6 @@ public class Luna_5_Connect4 {
         int chipsinarow = 0;
         boolean checkvert = true;
         while (checkvert) {
-            
             for (int i = 0; i < row; i++) {
                 for (int j = 0; j < col; j++) {
                     if(board[i][j] == '●'){
@@ -138,32 +140,30 @@ public class Luna_5_Connect4 {
                         chipsinarow += 0;
                     }
                     if(chipsinarow == 4){
-                        System.out.println(p1name + " Wins!");
                         checkvert = false;
                     }
                 }
             }
             break;
         }
-        chipsinarow = 0;
+        int chipsinarow2 = 0;
         boolean checkhor = true;
         while (checkhor) {
             for (int j = 0; j < col; j++) {
                 for (int i = 0; i < row; i++) {
                     if(board[i][j] == '●'){
-                        chipsinarow += 1;
+                        chipsinarow2 += 1;
                     }else{
-                        chipsinarow += 0;
+                        chipsinarow2 += 0;
                     }
-                    if(chipsinarow == 4){
-                        System.out.println(p1name + " Wins!");
+                    if(chipsinarow2 == 4){
                         checkhor = false;
                     }
                 }
             }
             break;
         }
-        chipsinarow = 0;
+        int chipsinarow3 = 0;
         boolean checkbacslash = true;
         while (checkbacslash) {
             int checkcol = 1;
@@ -171,12 +171,12 @@ public class Luna_5_Connect4 {
             for (int i = 0; i < row; i++) {
                 for (int j = 0; j < col; j++) {
                     if (board[i][j] == '●') {
-                        chipsinarow++;
+                        chipsinarow3++;
                         boolean checkon = true;
                         while (checkon) {
                             if(i-checkrow >= 0 && j-checkcol >= 0){
                                 if(board[i-checkrow][j-checkcol] == '●'){
-                                    chipsinarow++;
+                                    chipsinarow3++;
                                 }
                             }
                             checkcol++;
@@ -185,26 +185,26 @@ public class Luna_5_Connect4 {
                                 checkon = false;
                                 break;
                             }
-                            if(chipsinarow == 4){
+                            if(chipsinarow3 == 4){
                                 checkon = false;
                                 checkbacslash = false;
                                 break;
                             }  
                         }
                                             }
-                        if(chipsinarow == 4){
+                        if(chipsinarow3 == 4){
                             checkbacslash = false;
                             break;
                         }
                         checkcol = 1;
                         checkrow = 1;
-                        chipsinarow = 0;
+                        chipsinarow3 = 0;
 
                 }
             }
             break;
         }
-        chipsinarow = 0;
+        int chipsinarow4 = 0;
         boolean checkforslash = true;
         while (checkforslash) {
             int checkcol = 1;
@@ -212,46 +212,44 @@ public class Luna_5_Connect4 {
             for (int i = 0; i < row; i++) {
                 for (int j = 0; j < col; j++) {
                     if (board[i][j] == '●') {
-                        chipsinarow++;
-
+                        chipsinarow4++;
                         boolean checkon = true;
-                        while (checkon) {
-                            if(i+checkrow < row && j+ checkcol< col){
-                                if(board[i+checkrow][j+checkcol] == '●'){
-                                    chipsinarow++;
+                            while (checkon) {
+                                if(i+checkrow >= 6 && j+checkcol >= 6){
+                                    if(board[i-checkrow][j+checkcol] == '●'){
+                                        chipsinarow4++;
+                                    }
                                 }
+                                checkcol++;
+                                checkrow++;
+                                if(checkcol == 0 || checkrow == row-1){
+                                    checkon = false;
+                                    break;
+                                }
+                                if(chipsinarow4 == 4){
+                                    checkon = false;
+                                    checkforslash = false;
+                                    break;
+                                }  
                             }
-                            checkcol++;
-                            checkrow++;
-                            if(checkcol == 0|| checkrow == row-1){
-                                checkon = false;
-                                break;
-                            }
-                            if(chipsinarow == 4){
-                                checkon = false;
-                                checkforslash = false;
-                                break;
-                            }  
                         }
-                                            }
-                        if(chipsinarow == 4){
+                        if(chipsinarow4 == 4){
                             checkbacslash = false;
                             break;
                         }
                         checkcol = 1;
                         checkrow = 1;
-                        chipsinarow = 0;
-
+                        chipsinarow4 = 0;
                 }
             }
             break;
         }
-        boolean checkedall;
-        if(checkvert!= true||checkhor!=true||checkbacslash!=true||checkforslash!=true){
-            checkedall = true;
+        boolean haswon;
+        if(checkvert == false||checkhor == false||checkbacslash == false||checkforslash == false){
+            haswon = true;
         }else{
-            checkedall = false;
+            haswon = false;
         }
-        return checkedall;
+        return haswon;
     }
 }
