@@ -9,174 +9,249 @@
 package luna_5_connect4;
 import java.util.*;
 public class Luna_5_Connect4 {
-    final static int height = 6;//height of game board
-    final static int length = 6;//length of board
-    final static int bottem = height-1;// the lowwest row of the board
-    static char board[][] = new char[length][height];//makes the game board
-    static Scanner scanner = new Scanner(System.in);//scanner
-    static String p1name;
-    static String p2name;
-    public static void main(String[] args){
-        System.out.println("Welcome to Connect Four.\nPlease enter player one's name.");
-        p1name = scanner.nextLine();
-        System.out.println("Please enter player two's name");
-        p2name = scanner.nextLine();
-        for (int i = 0; i < length; i++) {
-            for (int j = 0; j < height; j++) {
-                board[i][j] = '■';
-                System.out.print(board[i][j] + " ");
-            }
-            System.out.println();
-        }
-        player1turn();
-    }
-    /****************************************************************************
-     * Method: player1turn
-     * Description: This method collects and sets the 1st players input
-     * Parameters: none all static variables
-     * Pre-Conditions: has to be called
-     * Post-Conditions: none
-     ****************************************************************************/
-    public static void player1turn(){
-        // spaces out the methods
-        for (int i = 0; i < 15; i++) {
-            System.out.println("");
-        }
-        //prints the board
-        for (int i = 0; i < length; i++) {
-            for (int j = 0; j < height; j++) {
-                System.out.print(board[i][j] + " ");
-            }
-            System.out.println();
-        }
-        //collects player 1s input
-        System.out.println(p1name +"'s turn\nPlease enter the colum you want to place your piece.");
-        int colum = scanner.nextInt();
-        colum--;
-        int num = 1;
-        boolean go = true;
-        while(true){
-            //sets player 1's chip to the desired location
-            if(colum > length){
-                System.out.println("That is not a vaild place");
-                player1turn();
-            }else{
-                if(board[bottem][colum]== '■'){
-                    board[bottem][colum] = '●';
-                    player1check();
-                }else if (board[bottem][colum] == '●' || board[bottem][colum] == '○') {
-                    if (board[bottem - num][colum] == '■') {
-                        board[bottem- num][colum] = '●';
-                        player1check();
-                    }
+    static int row = 6;//size of the rows
+    static int col = 6;//size of the columns
+    static char[][] board = new char[row][col];//board size
+    static String p1name;//player 1's name
+    static String p2name;//player 2's name
+    public static void main(String [] args){
+        System.out.println("Welcome to Connect 4\nPlease enter player 1's name");
+        Scanner pname1 = new Scanner(System.in);
+        p1name = pname1.nextLine();
+        System.out.println("Please enter player 2's name");
+        Scanner pname2 = new Scanner(System.in);
+        p2name = pname2.nextLine();
+        boolean play = true;
+        for (int i = 0; i < row; i++) {
+                for (int j = 0; j < col; j++) {
+                    board[i][j] = '■';
                 }
             }
-            num += 1;
-            if(num == length){
-                System.out.println("That column is full");
+        //controls the game
+        while (play) {
+            //prints out board
+            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+            for (int i = 0; i < row; i++) {
+                for (int j = 0; j < col; j++) {
+                    System.out.print(board[i][j]);
+                }
+                System.out.println("");
+            }
+            System.out.println(p1name + "'s turn\nEnter the column to place your chip.");//space out the methods collects the players input
+            p1Turn();
+            if(p1Check() == true){
+                play = false;
+                break;
+            }
+            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+            for (int i = 0; i < row; i++) {
+                for (int j = 0; j < col; j++) {
+                    System.out.print(board[i][j]);
+                }
+                System.out.println("");
+            }
+            System.out.println(p2name + "'s turn\nEnter the column to place your chip.");//space out the methods collects the players input
+            p2Turn();
+        }
+    }
+    /***************************************************************************
+     * Method: p1Turn()
+     * Description: Collects the 1st players input
+     * Parameters: None
+     * Pre-Conditions: play has to be true
+     * Post-Conditions: None
+     **************************************************************************/
+    public static void p1Turn(){
+        Scanner input = new Scanner(System.in);
+        int pcol = input.nextInt();
+        pcol -= 1;
+        int bottem = row-1;
+        int count = 1;
+        while(true){
+            if(pcol > col){
+                break;
+            }
+            if (board[bottem][pcol] == '■') {
+                board[bottem][pcol] = '●';
+                break;
+            }if(board[bottem][pcol] == '●' || board[bottem][pcol] == '○'){
+                if(board[bottem-count][pcol] == '■'){
+                    board[bottem-count][pcol] = '●';
+                    break;
+                }
+            }
+            count++;
+            if(count > row){
                 break;
             }
         }
     }
-    /****************************************************************************
-     * Method: player2turn
-     * Description: This method collects and sets the 2nd players input
-     * Parameters: none all static variables
-     * Pre-Conditions: has to be called
-     * Post-Conditions: none
-     ****************************************************************************/
-    public static void player2turn(){
-        // spaces out the methods
-        for (int i = 0; i < 15; i++) {
-            System.out.println("");
-        }
-        //prints the board
-        for (int i = 0; i < length; i++) {
-            for (int j = 0; j < height; j++) {
-                System.out.print(board[i][j] + " ");
-            }
-            System.out.println();
-        }
-        //collects player 2s input
-        System.out.println(p2name +"'s turn\nPlease enter the colum you want to place your piece.");
-        int colum = scanner.nextInt();
-        colum--;
-        int num = 1;
-        boolean go = true;
+    /***************************************************************************
+     * Method: p2Turn()
+     * Description: Collects the 2nd players input
+     * Parameters: None
+     * Pre-Conditions: play has to be true
+     * Post-Conditions: None
+     **************************************************************************/
+    public static void p2Turn(){
+        Scanner input = new Scanner(System.in);
+        int pcol = input.nextInt();
+        pcol -= 1;
+        int bottem = row-1;
+        int count = 1;
         while(true){
-            //sets player 1's chip to the desired location
-            if(colum > length){
-                System.out.println("That is not a vaild place");
-                player2turn();
-            }else{
-                if(board[bottem][colum]== '■'){
-                    board[bottem][colum] = '○';
-                    player2check();
-                    player1turn();
-                }else if (board[bottem][colum] == '●' || board[bottem][colum] == '○') {
-                    if (board[bottem - num][colum] == '■') {
-                        board[bottem- num][colum] = '○';
-                        player2check();
-                        player1turn();
-                    }
+            if(pcol > col){
+                break;
+            }
+            if (board[bottem][pcol] == '■') {
+                board[bottem][pcol] = '○';
+                break;
+            }if(board[bottem][pcol] == '●' || board[bottem][pcol] == '○'){
+                if(board[bottem-count][pcol] == '■'){
+                    board[bottem-count][pcol] = '○';
+                    break;
                 }
             }
-            num += 1;
-            if(num == length){
-                System.out.println("That column is full");
+            count++;
+            if(count > row){
                 break;
             }
         }
     }
-    /****************************************************************************
-     * Method: player1check
-     * Description: This method checks if player 1 has four chips in a row
-     * Parameters: none all static variables
-     * Pre-Conditions: has to be called
-     * Post-Conditions: none
-     ****************************************************************************/
-    public static void player1check(){
-        //checks the vetical
-        boolean check = true;
-        while (check) {
-            for (int i = 0; i < length; i+= 1) {
-                for (int j = 0; j < height; j+=1) {
-                    int inarow = 0;
+    /***************************************************************************
+     * Method: p1Check()
+     * Description: Checks to see if the 1st player has won
+     * Parameters: None
+     * Pre-Conditions: play has to be true
+     * Post-Conditions: None
+     **************************************************************************/
+    public static boolean p1Check(){
+        int chipsinarow = 0;
+        boolean checkvert = true;
+        while (checkvert) {
+            
+            for (int i = 0; i < row; i++) {
+                for (int j = 0; j < col; j++) {
                     if(board[i][j] == '●'){
-                        inarow++;
+                        chipsinarow += 1;
                     }else{
-                        inarow = 0;
-                    }if(inarow == 4){
+                        chipsinarow += 0;
+                    }
+                    if(chipsinarow == 4){
                         System.out.println(p1name + " Wins!");
-                        check = false;
+                        checkvert = false;
                     }
                 }
             }
-            //checks horizontal
-            for (int j = 0; j < height; j+=1) {
-                for (int i = 0; i < length; i+= 1) {
-                    int inarow = 0;
-                    if(board[i][j] == '●'){
-                        inarow++;
-                    }else{
-                        inarow = 0;
-                    }if(inarow == 4){
-                        System.out.println(p1name + " Wins!");
-                        check = false;
-                    }
-                }
-            }
+            break;
         }
-        player2turn();
-    }
-    /****************************************************************************
-     * Method: player2check
-     * Description: This method checks if player 2 has four chips in a row
-     * Parameters: none all static variables
-     * Pre-Conditions: has to be called
-     * Post-Conditions: none
-     ****************************************************************************/
-    public static void player2check(){
-        player1turn();
+        chipsinarow = 0;
+        boolean checkhor = true;
+        while (checkhor) {
+            for (int j = 0; j < col; j++) {
+                for (int i = 0; i < row; i++) {
+                    if(board[i][j] == '●'){
+                        chipsinarow += 1;
+                    }else{
+                        chipsinarow += 0;
+                    }
+                    if(chipsinarow == 4){
+                        System.out.println(p1name + " Wins!");
+                        checkhor = false;
+                    }
+                }
+            }
+            break;
+        }
+        chipsinarow = 0;
+        boolean checkbacslash = true;
+        while (checkbacslash) {
+            int checkcol = 1;
+            int checkrow = 1;
+            for (int i = 0; i < row; i++) {
+                for (int j = 0; j < col; j++) {
+                    if (board[i][j] == '●') {
+                        chipsinarow++;
+                        boolean checkon = true;
+                        while (checkon) {
+                            if(i-checkrow >= 0 && j-checkcol >= 0){
+                                if(board[i-checkrow][j-checkcol] == '●'){
+                                    chipsinarow++;
+                                }
+                            }
+                            checkcol++;
+                            checkrow++;
+                            if(checkcol == 0|| checkrow == row-1){
+                                checkon = false;
+                                break;
+                            }
+                            if(chipsinarow == 4){
+                                checkon = false;
+                                checkbacslash = false;
+                                break;
+                            }  
+                        }
+                                            }
+                        if(chipsinarow == 4){
+                            checkbacslash = false;
+                            break;
+                        }
+                        checkcol = 1;
+                        checkrow = 1;
+                        chipsinarow = 0;
+
+                }
+            }
+            break;
+        }
+        chipsinarow = 0;
+        boolean checkforslash = true;
+        while (checkforslash) {
+            int checkcol = 1;
+            int checkrow = 1;
+            for (int i = 0; i < row; i++) {
+                for (int j = 0; j < col; j++) {
+                    if (board[i][j] == '●') {
+                        chipsinarow++;
+
+                        boolean checkon = true;
+                        while (checkon) {
+                            if(i+checkrow < row && j+ checkcol< col){
+                                if(board[i+checkrow][j+checkcol] == '●'){
+                                    chipsinarow++;
+                                }
+                            }
+                            checkcol++;
+                            checkrow++;
+                            if(checkcol == 0|| checkrow == row-1){
+                                checkon = false;
+                                break;
+                            }
+                            if(chipsinarow == 4){
+                                checkon = false;
+                                checkforslash = false;
+                                break;
+                            }  
+                        }
+                                            }
+                        if(chipsinarow == 4){
+                            checkbacslash = false;
+                            break;
+                        }
+                        checkcol = 1;
+                        checkrow = 1;
+                        chipsinarow = 0;
+
+                }
+            }
+            break;
+        }
+        boolean checkedall;
+        if(checkvert!= true||checkhor!=true||checkbacslash!=true||checkforslash!=true){
+            checkedall = true;
+        }else{
+            checkedall = false;
+        }
+        return checkedall;
     }
 }
