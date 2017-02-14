@@ -134,13 +134,15 @@ public class Luna_5_Connect4 {
         while (checkvert) {
             for (int i = 0; i < row; i++) {
                 for (int j = 0; j < col; j++) {
-                    if(board[i][j] == '●'){
-                        chipsinarow += 1;
-                    }else{
-                        chipsinarow += 0;
-                    }
-                    if(chipsinarow == 4){
-                        checkvert = false;
+                    if (i-1 >=0) {
+                        if(board[i-1][j] == '●'){
+                            chipsinarow += 1;
+                        }else{
+                            chipsinarow += 0;
+                        }
+                        if(chipsinarow == 4){
+                            checkvert = false;
+                        }
                     }
                 }
             }
@@ -151,13 +153,15 @@ public class Luna_5_Connect4 {
         while (checkhor) {
             for (int j = 0; j < col; j++) {
                 for (int i = 0; i < row; i++) {
-                    if(board[i][j] == '●'){
-                        chipsinarow2 += 1;
-                    }else{
-                        chipsinarow2 += 0;
-                    }
-                    if(chipsinarow2 == 4){
-                        checkhor = false;
+                    if (j+1 < 6) {
+                        if(board[i][j+1] == '●'){
+                            chipsinarow2 += 1;
+                        }else{
+                            chipsinarow2 += 0;
+                        }
+                        if(chipsinarow2 == 4){
+                            checkhor = false;
+                        }
                     }
                 }
             }
@@ -215,7 +219,7 @@ public class Luna_5_Connect4 {
                         chipsinarow4++;
                         boolean checkon = true;
                             while (checkon) {
-                                if(i+checkrow >= 6 && j+checkcol >= 6){
+                                if(i-checkrow >= 0 && j+checkcol <= 6){
                                     if(board[i-checkrow][j+checkcol] == '●'){
                                         chipsinarow4++;
                                     }
