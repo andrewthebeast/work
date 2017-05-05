@@ -14,9 +14,7 @@ public class Luna_5_Vendingmachine {
     static ArrayList<Candies> candies = new ArrayList<Candies>();
     static Candies[][][] candIes = new Candies[3][3][1];
     public static void main(String[] args) {
-        int i = 0;
-        int j = 0;
-        //candies to be used = skittles, snickers, hersheys, twix, almond joy, kit kat, starburst, m&ms, 100 grand
+        //intializes the candies
         Candies candy1 = new Candies("Skittles", 8, 1.00, 170);
         candIes[0][0][0] = candy1;
         Candies candy2 = new Candies("Starburst", 8, .75, 160);
@@ -39,6 +37,11 @@ public class Luna_5_Vendingmachine {
     } 
     public static void candiesMaker(){
         double money;
+        String cname;
+        boolean show = false;
+        String buying;
+        int a = 0;
+        int b = 0;
         System.out.println("Welcome to the vending machine!");
         System.out.println("How much money do you have?");
 //        System.out.print("$ : ");
@@ -50,6 +53,29 @@ public class Luna_5_Vendingmachine {
                 System.out.print(candIes[i][j][0].getName() + "     ");
             }
             System.out.println("");
+        }
+        System.out.println("Please enter the name of the candy you would like to buy.");
+        Scanner scae = new Scanner(System.in);
+        cname = scae.nextLine();
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if(candIes[i][j][0].getName().equalsIgnoreCase(cname)){
+                    show = true;
+                    a = i;
+                    b = j;   
+                }
+            }
+        }
+        System.out.println("Name : " + candIes[a][b][0].getName());
+        System.out.println("Price : " + candIes[a][b][0].getPrc());
+        System.out.println("Amount : " + candIes[a][b][0].getAmt());
+        System.out.println("Calories : " + candIes[a][b][0].getCals());
+        System.out.println("Would you like to but this item?");
+        Scanner scaa = new Scanner(System.in);
+        buying = scaa.nextLine();
+        if(buying.contains("yes")){
+            System.out.println("How many?");
+            
         }
     }
 }
