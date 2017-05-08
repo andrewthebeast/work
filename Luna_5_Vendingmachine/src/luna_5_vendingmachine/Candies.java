@@ -9,15 +9,17 @@
 package luna_5_vendingmachine;
 public class Candies {
     private String name;
+    private String type;
     private int amt;
     private double prc;
     private int cals;
     
-     public Candies(String a, int b, double c, int d){
+     public Candies(String a,String b, int c, double d, int e){
         this.name = a;
-        this.amt = b;
-        this.prc = c;
-        this.cals = d;
+        this.type = b;
+        this.amt = c;
+        this.prc = d;
+        this.cals = e;
      }
 
     public String getName() {
@@ -26,6 +28,14 @@ public class Candies {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public int getAmt() {
