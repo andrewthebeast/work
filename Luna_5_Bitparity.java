@@ -1,7 +1,7 @@
 /*******************************************************************************
  * Program Filename : Luna_5_BitParity.java
  * Author : Luna, Andrew
- * Date : May 10th, 2017
+ * Date : May10th, 2017
  * Description : Asks the user for their name in binary then uses the hemming code to transform the name
  * Input : users name
  * Output: Hemming code up dated
@@ -11,117 +11,511 @@ import java.util.Scanner;
 import java.util.ArrayList;
 public class Luna_5_Bitparity {
     static Scanner scan = new Scanner(System.in);
+    static String name;
+    static String newname;
     static ArrayList<ASCIIcode> asciicode = new ArrayList<ASCIIcode>();
     public static void main(String[] args) {
         makeConverter();
-        
+        System.out.println("Please enter your name in ascii");
+        name = scan.nextLine();
     }
     
     public static void makeConverter(){
-        ASCIIcode lettera = new ASCIIcode('a', 097.0, 01100001);
+        //lowercase letters
+        ASCIIcode lettera = new ASCIIcode(97, 01100001);
         asciicode.add(lettera);
-        ASCIIcode letterb = new ASCIIcode('b', 098.0, 01100010);
+        ASCIIcode letterb = new ASCIIcode(98, 01100010);
         asciicode.add(letterb);
-        ASCIIcode letterc = new ASCIIcode('c', 099.0, 01100001);
+        ASCIIcode letterc = new ASCIIcode(99, 01100011);
         asciicode.add(letterc);
-        ASCIIcode letterd = new ASCIIcode('d', 100.0, 01100001);
+        ASCIIcode letterd = new ASCIIcode(100, 01100100);
         asciicode.add(letterd);
-        ASCIIcode lettere = new ASCIIcode('e', 101.0, 01100001);
+        ASCIIcode lettere = new ASCIIcode(101, 01100101);
         asciicode.add(lettere);
-        ASCIIcode letterf = new ASCIIcode('f', 102.0, 01100001);
+        ASCIIcode letterf = new ASCIIcode(102, 01100110);
         asciicode.add(letterf);
-        ASCIIcode letterg = new ASCIIcode('g', 103.0, 01100001);
+        ASCIIcode letterg = new ASCIIcode(103, 01100111);
         asciicode.add(letterg);
-        ASCIIcode letterh = new ASCIIcode('h', 104.0, 01100001);
+        ASCIIcode letterh = new ASCIIcode(104, 01101000);
         asciicode.add(letterh);
-        ASCIIcode letteri = new ASCIIcode('i', 105.0, 01100001);
+        ASCIIcode letteri = new ASCIIcode(105, 01101001);
         asciicode.add(letteri);
-        ASCIIcode letterj = new ASCIIcode('j', 106.0, 01100001);
+        ASCIIcode letterj = new ASCIIcode(106, 01101010);
         asciicode.add(letterj);
-        ASCIIcode letterk = new ASCIIcode('k', 107.0, 01100001);
+        ASCIIcode letterk = new ASCIIcode(107, 01101011);/*******************************************************************************
+ * Program Filename : Luna_5_BitParity.java
+ * Author : Luna, Andrew
+ * Date : May10th, 2017
+ * Description : Asks the user for their name in binary then uses the hemming code to transform the name
+ * Input : users name
+ * Output: Hemming code up dated
+ ******************************************************************************/
+package luna_5_bitparity;
+import java.util.Scanner;
+import java.util.ArrayList;
+public class Luna_5_Bitparity {
+    static Scanner scan = new Scanner(System.in);
+    static String name;
+    static String newname;
+    static ArrayList<ASCIIcode> asciicode = new ArrayList<ASCIIcode>();
+    public static void main(String[] args) {
+        makeConverter();
+        System.out.println("Please enter your name in ascii");
+        name = scan.nextLine();
+    }
+    
+    public static void makeConverter(){
+        //lowercase letters
+        ASCIIcode lettera = new ASCIIcode(97, 01100001);
+        asciicode.add(lettera);
+        ASCIIcode letterb = new ASCIIcode(98, 01100010);
+        asciicode.add(letterb);
+        ASCIIcode letterc = new ASCIIcode(99, 01100011);
+        asciicode.add(letterc);
+        ASCIIcode letterd = new ASCIIcode(100, 01100100);
+        asciicode.add(letterd);
+        ASCIIcode lettere = new ASCIIcode(101, 01100101);
+        asciicode.add(lettere);
+        ASCIIcode letterf = new ASCIIcode(102, 01100110);
+        asciicode.add(letterf);
+        ASCIIcode letterg = new ASCIIcode(103, 01100111);
+        asciicode.add(letterg);
+        ASCIIcode letterh = new ASCIIcode(104, 01101000);
+        asciicode.add(letterh);
+        ASCIIcode letteri = new ASCIIcode(105, 01101001);
+        asciicode.add(letteri);
+        ASCIIcode letterj = new ASCIIcode(106, 01101010);
+        asciicode.add(letterj);
+        ASCIIcode letterk = new ASCIIcode(107, 01101011);
         asciicode.add(letterk);
-        ASCIIcode letterl = new ASCIIcode('l', 108.0, 01100001);
+        ASCIIcode letterl = new ASCIIcode(108, 01101100);
         asciicode.add(letterl);
-        ASCIIcode letterm = new ASCIIcode('m', 109.0, 01100001);
+        ASCIIcode letterm = new ASCIIcode(109, 01101101);
         asciicode.add(letterm);
-        ASCIIcode lettern = new ASCIIcode('n', 110.0, 01100001);
+        ASCIIcode lettern = new ASCIIcode(110, 01101110);
         asciicode.add(lettern);
-        ASCIIcode lettero = new ASCIIcode('o', 111.0, 01100001);
+        ASCIIcode lettero = new ASCIIcode(111, 01101111);
         asciicode.add(lettero);
-        ASCIIcode letterp = new ASCIIcode('p', 112.0, 01100001);
+        ASCIIcode letterp = new ASCIIcode(112, 01110000);
         asciicode.add(letterp);
-        ASCIIcode letterq = new ASCIIcode('q', 113.0, 01100001);
+        ASCIIcode letterq = new ASCIIcode(113, 01110001);
         asciicode.add(letterq);
-        ASCIIcode letterr = new ASCIIcode('r', 114.0, 01100001);
+        ASCIIcode letterr = new ASCIIcode(114, 01110010);
         asciicode.add(letterr);
-        ASCIIcode letters = new ASCIIcode('s', 115.0, 01100001);
+        ASCIIcode letters = new ASCIIcode(115, 01110011);
         asciicode.add(letters);
-        ASCIIcode lettert = new ASCIIcode('t', 116.0, 01100001);
+        ASCIIcode lettert = new ASCIIcode(116, 01110100);
         asciicode.add(lettert);
-        ASCIIcode letteru = new ASCIIcode('u', 117.0, 01100001);
+        ASCIIcode letteru = new ASCIIcode(117, 01110101);
         asciicode.add(letteru);
-        ASCIIcode letterv = new ASCIIcode('v', 118.0, 01100001);
+        ASCIIcode letterv = new ASCIIcode(118, 01110110);
         asciicode.add(letterv);
-        ASCIIcode letterw = new ASCIIcode('w', 119.0, 01100001);
+        ASCIIcode letterw = new ASCIIcode(119, 01110111);
         asciicode.add(letterw);
-        ASCIIcode letterx = new ASCIIcode('x', 120.0, 01100001);
+        ASCIIcode letterx = new ASCIIcode(120, 01111000);
         asciicode.add(letterx);
-        ASCIIcode lettery = new ASCIIcode('y', 121.0, 01100001);
+        ASCIIcode lettery = new ASCIIcode(121, 01100001);
         asciicode.add(lettery);
-        ASCIIcode letterz = new ASCIIcode('z', 122.0, 01100001);
+        ASCIIcode letterz = new ASCIIcode(122, 01111010);
         asciicode.add(letterz);
         //capital letters
-        ASCIIcode letterA = new ASCIIcode('A', 097.0, 01100001);
+        ASCIIcode letterA = new ASCIIcode(65, 01000001);
         asciicode.add(letterA);
-        ASCIIcode letterB = new ASCIIcode('B', 098.0, 01100010);
+        ASCIIcode letterB = new ASCIIcode(66, 01000010);
         asciicode.add(letterB);
-        ASCIIcode letterC = new ASCIIcode('C', 099.0, 01100001);
+        ASCIIcode letterC = new ASCIIcode(67, 01000011);
         asciicode.add(letterC);
-        ASCIIcode letterD = new ASCIIcode('D', 100.0, 01100001);
+        ASCIIcode letterD = new ASCIIcode(68, 01000100);
         asciicode.add(letterD);
-        ASCIIcode letterE = new ASCIIcode('E', 101.0, 01100001);
+        ASCIIcode letterE = new ASCIIcode(69, 01000101);
         asciicode.add(letterE);
-        ASCIIcode letterF = new ASCIIcode('F', 102.0, 01100001);
+        ASCIIcode letterF = new ASCIIcode(70, 01000110);
         asciicode.add(letterF);
-        ASCIIcode letterG = new ASCIIcode('G', 103.0, 01100001);
+        ASCIIcode letterG = new ASCIIcode(71, 01000111);
         asciicode.add(letterG);
-        ASCIIcode letterH = new ASCIIcode('H', 104.0, 01100001);
+        ASCIIcode letterH = new ASCIIcode(72, 01001000);
         asciicode.add(letterH);
-        ASCIIcode letterI = new ASCIIcode('I', 105.0, 01100001);
+        ASCIIcode letterI = new ASCIIcode(73, 01001001);
         asciicode.add(letterI);
-        ASCIIcode letterJ = new ASCIIcode('J', 106.0, 01100001);
+        ASCIIcode letterJ = new ASCIIcode(74, 01001010);
         asciicode.add(letterJ);
-        ASCIIcode letterK = new ASCIIcode('K', 107.0, 01100001);
+        ASCIIcode letterK = new ASCIIcode(75, 01001011);
         asciicode.add(letterK);
-        ASCIIcode letterL = new ASCIIcode('L', 108.0, 01100001);
+        ASCIIcode letterL = new ASCIIcode(76, 01001100);
         asciicode.add(letterL);
-        ASCIIcode letterM = new ASCIIcode('M', 109.0, 01100001);
+        ASCIIcode letterM = new ASCIIcode(77, 01001101);
         asciicode.add(letterM);
-        ASCIIcode letterN = new ASCIIcode('N', 110.0, 01100001);
+        ASCIIcode letterN = new ASCIIcode(78, 01001110);
         asciicode.add(letterN);
-        ASCIIcode letterO = new ASCIIcode('O', 111.0, 01100001);
+        ASCIIcode letterO = new ASCIIcode(79, 01001111);/*******************************************************************************
+ * Program Filename : Luna_5_BitParity.java
+ * Author : Luna, Andrew
+ * Date : May10th, 2017
+ * Description : Asks the user for their name in binary then uses the hemming code to transform the name
+ * Input : users name
+ * Output: Hemming code up dated
+ ******************************************************************************/
+package luna_5_bitparity;
+import java.util.Scanner;
+import java.util.ArrayList;
+public class Luna_5_Bitparity {
+    static Scanner scan = new Scanner(System.in);
+    static String name;
+    static String newname;
+    static ArrayList<ASCIIcode> asciicode = new ArrayList<ASCIIcode>();
+    public static void main(String[] args) {
+        makeConverter();
+        System.out.println("Please enter your name in ascii");
+        name = scan.nextLine();
+    }
+    
+    public static void makeConverter(){
+        //lowercase letters
+        ASCIIcode lettera = new ASCIIcode(97, 01100001);
+        asciicode.add(lettera);
+        ASCIIcode letterb = new ASCIIcode(98, 01100010);
+        asciicode.add(letterb);
+        ASCIIcode letterc = new ASCIIcode(99, 01100011);
+        asciicode.add(letterc);
+        ASCIIcode letterd = new ASCIIcode(100, 01100100);
+        asciicode.add(letterd);
+        ASCIIcode lettere = new ASCIIcode(101, 01100101);
+        asciicode.add(lettere);
+        ASCIIcode letterf = new ASCIIcode(102, 01100110);
+        asciicode.add(letterf);
+        ASCIIcode letterg = new ASCIIcode(103, 01100111);
+        asciicode.add(letterg);
+        ASCIIcode letterh = new ASCIIcode(104, 01101000);
+        asciicode.add(letterh);
+        ASCIIcode letteri = new ASCIIcode(105, 01101001);
+        asciicode.add(letteri);
+        ASCIIcode letterj = new ASCIIcode(106, 01101010);
+        asciicode.add(letterj);
+        ASCIIcode letterk = new ASCIIcode(107, 01101011);
+        asciicode.add(letterk);
+        ASCIIcode letterl = new ASCIIcode(108, 01101100);
+        asciicode.add(letterl);
+        ASCIIcode letterm = new ASCIIcode(109, 01101101);
+        asciicode.add(letterm);
+        ASCIIcode lettern = new ASCIIcode(110, 01101110);
+        asciicode.add(lettern);
+        ASCIIcode lettero = new ASCIIcode(111, 01101111);
+        asciicode.add(lettero);
+        ASCIIcode letterp = new ASCIIcode(112, 01110000);
+        asciicode.add(letterp);
+        ASCIIcode letterq = new ASCIIcode(113, 01110001);
+        asciicode.add(letterq);
+        ASCIIcode letterr = new ASCIIcode(114, 01110010);
+        asciicode.add(letterr);
+        ASCIIcode letters = new ASCIIcode(115, 01110011);
+        asciicode.add(letters);
+        ASCIIcode lettert = new ASCIIcode(116, 01110100);
+        asciicode.add(lettert);
+        ASCIIcode letteru = new ASCIIcode(117, 01110101);
+        asciicode.add(letteru);
+        ASCIIcode letterv = new ASCIIcode(118, 01110110);
+        asciicode.add(letterv);
+        ASCIIcode letterw = new ASCIIcode(119, 01110111);
+        asciicode.add(letterw);
+        ASCIIcode letterx = new ASCIIcode(120, 01111000);
+        asciicode.add(letterx);
+        ASCIIcode lettery = new ASCIIcode(121, 01100001);
+        asciicode.add(lettery);
+        ASCIIcode letterz = new ASCIIcode(122, 01111010);
+        asciicode.add(letterz);
+        //capital letters
+        ASCIIcode letterA = new ASCIIcode(65, 01000001);
+        asciicode.add(letterA);
+        ASCIIcode letterB = new ASCIIcode(66, 01000010);
+        asciicode.add(letterB);
+        ASCIIcode letterC = new ASCIIcode(67, 01000011);
+        asciicode.add(letterC);
+        ASCIIcode letterD = new ASCIIcode(68, 01000100);
+        asciicode.add(letterD);
+        ASCIIcode letterE = new ASCIIcode(69, 01000101);
+        asciicode.add(letterE);
+        ASCIIcode letterF = new ASCIIcode(70, 01000110);
+        asciicode.add(letterF);
+        ASCIIcode letterG = new ASCIIcode(71, 01000111);/*******************************************************************************
+ * Program Filename : Luna_5_BitParity.java
+ * Author : Luna, Andrew
+ * Date : May10th, 2017
+ * Description : Asks the user for their name in binary then uses the hemming code to transform the name
+ * Input : users name
+ * Output: Hemming code up dated
+ ******************************************************************************/
+package luna_5_bitparity;
+import java.util.Scanner;
+import java.util.ArrayList;
+public class Luna_5_Bitparity {
+    static Scanner scan = new Scanner(System.in);
+    static String name;
+    static String newname;
+    static ArrayList<ASCIIcode> asciicode = new ArrayList<ASCIIcode>();
+    public static void main(String[] args) {
+        makeConverter();
+        System.out.println("Please enter your name in ascii");
+        name = scan.nextLine();
+    }
+    
+    public static void makeConverter(){
+        //lowercase letters
+        ASCIIcode lettera = new ASCIIcode(97, 01100001);
+        asciicode.add(lettera);
+        ASCIIcode letterb = new ASCIIcode(98, 01100010);
+        asciicode.add(letterb);
+        ASCIIcode letterc = new ASCIIcode(99, 01100011);
+        asciicode.add(letterc);
+        ASCIIcode letterd = new ASCIIcode(100, 01100100);
+        asciicode.add(letterd);
+        ASCIIcode lettere = new ASCIIcode(101, 01100101);
+        asciicode.add(lettere);
+        ASCIIcode letterf = new ASCIIcode(102, 01100110);
+        asciicode.add(letterf);
+        ASCIIcode letterg = new ASCIIcode(103, 01100111);
+        asciicode.add(letterg);
+        ASCIIcode letterh = new ASCIIcode(104, 01101000);
+        asciicode.add(letterh);
+        ASCIIcode letteri = new ASCIIcode(105, 01101001);
+        asciicode.add(letteri);
+        ASCIIcode letterj = new ASCIIcode(106, 01101010);
+        asciicode.add(letterj);
+        ASCIIcode letterk = new ASCIIcode(107, 01101011);
+        asciicode.add(letterk);
+        ASCIIcode letterl = new ASCIIcode(108, 01101100);
+        asciicode.add(letterl);
+        ASCIIcode letterm = new ASCIIcode(109, 01101101);
+        asciicode.add(letterm);
+        ASCIIcode lettern = new ASCIIcode(110, 01101110);
+        asciicode.add(lettern);
+        ASCIIcode lettero = new ASCIIcode(111, 01101111);
+        asciicode.add(lettero);
+        ASCIIcode letterp = new ASCIIcode(112, 01110000);
+        asciicode.add(letterp);
+        ASCIIcode letterq = new ASCIIcode(113, 01110001);
+        asciicode.add(letterq);
+        ASCIIcode letterr = new ASCIIcode(114, 01110010);
+        asciicode.add(letterr);
+        ASCIIcode letters = new ASCIIcode(115, 01110011);
+        asciicode.add(letters);
+        ASCIIcode lettert = new ASCIIcode(116, 01110100);
+        asciicode.add(lettert);
+        ASCIIcode letteru = new ASCIIcode(117, 01110101);
+        asciicode.add(letteru);
+        ASCIIcode letterv = new ASCIIcode(118, 01110110);
+        asciicode.add(letterv);
+        ASCIIcode letterw = new ASCIIcode(119, 01110111);
+        asciicode.add(letterw);
+        ASCIIcode letterx = new ASCIIcode(120, 01111000);
+        asciicode.add(letterx);
+        ASCIIcode lettery = new ASCIIcode(121, 01100001);
+        asciicode.add(lettery);
+        ASCIIcode letterz = new ASCIIcode(122, 01111010);
+        asciicode.add(letterz);
+        //capital letters
+        ASCIIcode letterA = new ASCIIcode(65, 01000001);
+        asciicode.add(letterA);
+        ASCIIcode letterB = new ASCIIcode(66, 01000010);
+        asciicode.add(letterB);
+        ASCIIcode letterC = new ASCIIcode(67, 01000011);
+        asciicode.add(letterC);
+        ASCIIcode letterD = new ASCIIcode(68, 01000100);
+        asciicode.add(letterD);
+        ASCIIcode letterE = new ASCIIcode(69, 01000101);
+        asciicode.add(letterE);
+        ASCIIcode letterF = new ASCIIcode(70, 01000110);
+        asciicode.add(letterF);
+        ASCIIcode letterG = new ASCIIcode(71, 01000111);
+        asciicode.add(letterG);
+        ASCIIcode letterH = new ASCIIcode(72, 01001000);
+        asciicode.add(letterH);
+        ASCIIcode letterI = new ASCIIcode(73, 01001001);
+        asciicode.add(letterI);
+        ASCIIcode letterJ = new ASCIIcode(74, 01001010);
+        asciicode.add(letterJ);
+        ASCIIcode letterK = new ASCIIcode(75, 01001011);
+        asciicode.add(letterK);
+        ASCIIcode letterL = new ASCIIcode(76, 01001100);
+        asciicode.add(letterL);
+        ASCIIcode letterM = new ASCIIcode(77, 01001101);
+        asciicode.add(letterM);
+        ASCIIcode letterN = new ASCIIcode(78, 01001110);
+        asciicode.add(letterN);
+        ASCIIcode letterO = new ASCIIcode(79, 01001111);
         asciicode.add(letterO);
-        ASCIIcode letterP = new ASCIIcode('P', 112.0, 01100001);
+        ASCIIcode letterP = new ASCIIcode(80, 01010000);
         asciicode.add(letterP);
-        ASCIIcode letterQ = new ASCIIcode('Q', 113.0, 01100001);
+        ASCIIcode letterQ = new ASCIIcode(81, 01010001);
         asciicode.add(letterQ);
-        ASCIIcode letterR = new ASCIIcode('R', 114.0, 01100001);
+        ASCIIcode letterR = new ASCIIcode(82, 01010010);
         asciicode.add(letterR);
-        ASCIIcode letterS = new ASCIIcode('S', 115.0, 01100001);
+        ASCIIcode letterS = new ASCIIcode(83, 01010011);
         asciicode.add(letterS);
-        ASCIIcode letterT = new ASCIIcode('T', 116.0, 01100001);
+        ASCIIcode letterT = new ASCIIcode(84, 01010100);
         asciicode.add(letterT);
-        ASCIIcode letterU = new ASCIIcode('U', 117.0, 01100001);
+        ASCIIcode letterU = new ASCIIcode(85, 01010101);
         asciicode.add(letterU);
-        ASCIIcode letterV = new ASCIIcode('V', 118.0, 01100001);
+        ASCIIcode letterV = new ASCIIcode(86, 01010110);
         asciicode.add(letterV);
-        ASCIIcode letterW = new ASCIIcode('W', 119.0, 01100001);
+        ASCIIcode letterW = new ASCIIcode(87, 0100111);
         asciicode.add(letterW);
-        ASCIIcode letterX = new ASCIIcode('X', 120.0, 01100001);
+        ASCIIcode letterX = new ASCIIcode(88, 01011000);
         asciicode.add(letterX);
-        ASCIIcode letterY = new ASCIIcode('Y', 121.0, 01100001);
+        ASCIIcode letterY = new ASCIIcode(89, 01000001);
         asciicode.add(letterY);
-        ASCIIcode letterZ = new ASCIIcode('Z', 122.0, 01100001);
+        ASCIIcode letterZ = new ASCIIcode(90, 01011010);
+        asciicode.add(letterZ);
+    }
+}
+        asciicode.add(letterG);
+        ASCIIcode letterH = new ASCIIcode(72, 01001000);
+        asciicode.add(letterH);
+        ASCIIcode letterI = new ASCIIcode(73, 01001001);
+        asciicode.add(letterI);
+        ASCIIcode letterJ = new ASCIIcode(74, 01001010);
+        asciicode.add(letterJ);
+        ASCIIcode letterK = new ASCIIcode(75, 01001011);
+        asciicode.add(letterK);
+        ASCIIcode letterL = new ASCIIcode(76, 01001100);
+        asciicode.add(letterL);
+        ASCIIcode letterM = new ASCIIcode(77, 01001101);
+        asciicode.add(letterM);
+        ASCIIcode letterN = new ASCIIcode(78, 01001110);
+        asciicode.add(letterN);
+        ASCIIcode letterO = new ASCIIcode(79, 01001111);
+        asciicode.add(letterO);
+        ASCIIcode letterP = new ASCIIcode(80, 01010000);
+        asciicode.add(letterP);
+        ASCIIcode letterQ = new ASCIIcode(81, 01010001);
+        asciicode.add(letterQ);
+        ASCIIcode letterR = new ASCIIcode(82, 01010010);
+        asciicode.add(letterR);
+        ASCIIcode letterS = new ASCIIcode(83, 01010011);
+        asciicode.add(letterS);
+        ASCIIcode letterT = new ASCIIcode(84, 01010100);
+        asciicode.add(letterT);
+        ASCIIcode letterU = new ASCIIcode(85, 01010101);
+        asciicode.add(letterU);
+        ASCIIcode letterV = new ASCIIcode(86, 01010110);
+        asciicode.add(letterV);
+        ASCIIcode letterW = new ASCIIcode(87, 0100111);
+        asciicode.add(letterW);
+        ASCIIcode letterX = new ASCIIcode(88, 01011000);
+        asciicode.add(letterX);
+        ASCIIcode letterY = new ASCIIcode(89, 01000001);
+        asciicode.add(letterY);
+        ASCIIcode letterZ = new ASCIIcode(90, 01011010);
+        asciicode.add(letterZ);
+    }
+}
+        asciicode.add(letterO);
+        ASCIIcode letterP = new ASCIIcode(80, 01010000);
+        asciicode.add(letterP);
+        ASCIIcode letterQ = new ASCIIcode(81, 01010001);
+        asciicode.add(letterQ);
+        ASCIIcode letterR = new ASCIIcode(82, 01010010);
+        asciicode.add(letterR);
+        ASCIIcode letterS = new ASCIIcode(83, 01010011);
+        asciicode.add(letterS);
+        ASCIIcode letterT = new ASCIIcode(84, 01010100);
+        asciicode.add(letterT);
+        ASCIIcode letterU = new ASCIIcode(85, 01010101);
+        asciicode.add(letterU);
+        ASCIIcode letterV = new ASCIIcode(86, 01010110);
+        asciicode.add(letterV);
+        ASCIIcode letterW = new ASCIIcode(87, 0100111);
+        asciicode.add(letterW);
+        ASCIIcode letterX = new ASCIIcode(88, 01011000);
+        asciicode.add(letterX);
+        ASCIIcode letterY = new ASCIIcode(89, 01000001);
+        asciicode.add(letterY);
+        ASCIIcode letterZ = new ASCIIcode(90, 01011010);
+        asciicode.add(letterZ);
+    }
+}
+        asciicode.add(letterk);
+        ASCIIcode letterl = new ASCIIcode(108, 01101100);
+        asciicode.add(letterl);
+        ASCIIcode letterm = new ASCIIcode(109, 01101101);
+        asciicode.add(letterm);
+        ASCIIcode lettern = new ASCIIcode(110, 01101110);
+        asciicode.add(lettern);
+        ASCIIcode lettero = new ASCIIcode(111, 01101111);
+        asciicode.add(lettero);
+        ASCIIcode letterp = new ASCIIcode(112, 01110000);
+        asciicode.add(letterp);
+        ASCIIcode letterq = new ASCIIcode(113, 01110001);
+        asciicode.add(letterq);
+        ASCIIcode letterr = new ASCIIcode(114, 01110010);
+        asciicode.add(letterr);
+        ASCIIcode letters = new ASCIIcode(115, 01110011);
+        asciicode.add(letters);
+        ASCIIcode lettert = new ASCIIcode(116, 01110100);
+        asciicode.add(lettert);
+        ASCIIcode letteru = new ASCIIcode(117, 01110101);
+        asciicode.add(letteru);
+        ASCIIcode letterv = new ASCIIcode(118, 01110110);
+        asciicode.add(letterv);
+        ASCIIcode letterw = new ASCIIcode(119, 01110111);
+        asciicode.add(letterw);
+        ASCIIcode letterx = new ASCIIcode(120, 01111000);
+        asciicode.add(letterx);
+        ASCIIcode lettery = new ASCIIcode(121, 01100001);
+        asciicode.add(lettery);
+        ASCIIcode letterz = new ASCIIcode(122, 01111010);
+        asciicode.add(letterz);
+        //capital letters
+        ASCIIcode letterA = new ASCIIcode(65, 01000001);
+        asciicode.add(letterA);
+        ASCIIcode letterB = new ASCIIcode(66, 01000010);
+        asciicode.add(letterB);
+        ASCIIcode letterC = new ASCIIcode(67, 01000011);
+        asciicode.add(letterC);
+        ASCIIcode letterD = new ASCIIcode(68, 01000100);
+        asciicode.add(letterD);
+        ASCIIcode letterE = new ASCIIcode(69, 01000101);
+        asciicode.add(letterE);
+        ASCIIcode letterF = new ASCIIcode(70, 01000110);
+        asciicode.add(letterF);
+        ASCIIcode letterG = new ASCIIcode(71, 01000111);
+        asciicode.add(letterG);
+        ASCIIcode letterH = new ASCIIcode(72, 01001000);
+        asciicode.add(letterH);
+        ASCIIcode letterI = new ASCIIcode(73, 01001001);
+        asciicode.add(letterI);
+        ASCIIcode letterJ = new ASCIIcode(74, 01001010);
+        asciicode.add(letterJ);
+        ASCIIcode letterK = new ASCIIcode(75, 01001011);
+        asciicode.add(letterK);
+        ASCIIcode letterL = new ASCIIcode(76, 01001100);
+        asciicode.add(letterL);
+        ASCIIcode letterM = new ASCIIcode(77, 01001101);
+        asciicode.add(letterM);
+        ASCIIcode letterN = new ASCIIcode(78, 01001110);
+        asciicode.add(letterN);
+        ASCIIcode letterO = new ASCIIcode(79, 01001111);
+        asciicode.add(letterO);
+        ASCIIcode letterP = new ASCIIcode(80, 01010000);
+        asciicode.add(letterP);
+        ASCIIcode letterQ = new ASCIIcode(81, 01010001);
+        asciicode.add(letterQ);
+        ASCIIcode letterR = new ASCIIcode(82, 01010010);
+        asciicode.add(letterR);
+        ASCIIcode letterS = new ASCIIcode(83, 01010011);
+        asciicode.add(letterS);
+        ASCIIcode letterT = new ASCIIcode(84, 01010100);
+        asciicode.add(letterT);
+        ASCIIcode letterU = new ASCIIcode(85, 01010101);
+        asciicode.add(letterU);
+        ASCIIcode letterV = new ASCIIcode(86, 01010110);
+        asciicode.add(letterV);
+        ASCIIcode letterW = new ASCIIcode(87, 0100111);
+        asciicode.add(letterW);
+        ASCIIcode letterX = new ASCIIcode(88, 01011000);
+        asciicode.add(letterX);
+        ASCIIcode letterY = new ASCIIcode(89, 01000001);
+        asciicode.add(letterY);
+        ASCIIcode letterZ = new ASCIIcode(90, 01011010);
         asciicode.add(letterZ);
     }
 }
