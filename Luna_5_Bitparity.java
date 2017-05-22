@@ -18,19 +18,19 @@ public class Luna_5_Bitparity {
         makeConverter();
         int a;
         System.out.println("how many letters are in your name?");
-        
         a = scan.nextInt();
         String[] nameinascii = new String[a];
         System.out.println("If the number begings with zero please do not enter the zero");
-        for (int i = 0; i < a; i++) {
-            System.out.println("What is the " + (i+1) + " letter in your name.");
-            String temp = scan.nextLine();
-            nameinascii[i] = temp;
+        for (int i = 1; i <= a; i++) {
+            System.out.println("What is the " + (i) + " letter in your name.");
+            Scanner hue = new Scanner(System.in); //dont worry about it
+            String temp = hue.nextLine();
+            nameinascii[i-1] = temp;
         }
         System.out.println("Changing your name");
         for (int i = 0; i < nameinascii.length; i++) {
             for (int j = 0; j < asciicode.size(); j++) {
-                if(nameinascii[i] == asciicode.get(j).asciinum){
+                if(nameinascii[i].equals(asciicode.get(j).asciinum)){
                     nameinascii[i] = asciicode.get(j).binaryval;
                 }
             }
@@ -149,11 +149,7 @@ public class Luna_5_Bitparity {
     
     public static void convert(String [] nameinascii){
         for (int i = 0; i < nameinascii.length; i++) {
-            //checkone
-            for (int j = 0; j < nameinascii[i].length(); j++) {
-                int check = nameinascii[j].charAt(i);
-                System.out.println(check);
-            }
+            System.out.println(nameinascii[i]);
         }
     }
 }
