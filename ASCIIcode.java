@@ -1,4 +1,4 @@
-*******************************************************************************
+/*******************************************************************************
  * Program Filename : Luna_5_BitParity.java
  * Author : Luna, Andrew
  * Date : MAy 11th, 2017
@@ -8,26 +8,26 @@
  ******************************************************************************/
 package luna_5_bitparity;
 public class ASCIIcode {
-    int asciinum;
-    int binaryval;
-    public ASCIIcode(int b , int c){
+    String asciinum;
+    String binaryval;
+    public ASCIIcode(String b , String c){
         asciinum = b;
         binaryval = c;
     }
 
-    public double getAsciinum() {
+    public String getAsciinum() {
         return asciinum;
     }
 
-    public void setAsciinum(int asciinum) {
+    public void setAsciinum(String asciinum) {
         this.asciinum = asciinum;
     }
 
-    public double getBinaryval() {
+    public String getBinaryval() {
         return binaryval;
     }
 
-    public void setBinaryval(int binaryval) {
+    public void setBinaryval(String binaryval) {
         this.binaryval = binaryval;
     }
 }
