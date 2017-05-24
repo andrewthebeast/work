@@ -20,7 +20,6 @@ public class Luna_5_Bitparity {
         System.out.println("how many letters are in your name?");
         a = scan.nextInt();
         String[] nameinascii = new String[a];
-        System.out.println("If the number begings with zero please do not enter the zero");
         for (int i = 1; i <= a; i++) {
             System.out.println("What is the " + (i) + " letter in your name.");
             Scanner hue = new Scanner(System.in); //dont worry about it
@@ -137,7 +136,7 @@ public class Luna_5_Bitparity {
         asciicode.add(letterU);
         ASCIIcode letterV = new ASCIIcode("086", "01010110");
         asciicode.add(letterV);
-        ASCIIcode letterW = new ASCIIcode("087", "0100111");
+        ASCIIcode letterW = new ASCIIcode("087", "01001111");
         asciicode.add(letterW);
         ASCIIcode letterX = new ASCIIcode("088", "01011000");
         asciicode.add(letterX);
@@ -149,7 +148,46 @@ public class Luna_5_Bitparity {
     
     public static void convert(String [] nameinascii){
         for (int i = 0; i < nameinascii.length; i++) {
+            int checkone = 0;
+            int checktwo = 0;
+            int checkthree = 0;
+            int checkfour = 0;
             System.out.println(nameinascii[i]);
+            String temp = nameinascii[i];
+            //checkone
+            for (int j = 1; j <= 1; j++) {
+                System.out.println(j);
+                int check = temp.charAt(j) + temp.charAt(j+2) + temp.charAt(j+4) + temp.charAt(j+6);
+                if(check % 2 == 0){
+                    checkone = 0;
+                }else
+                    checkone = 1;
+            }
+            //checktwo
+            for (int j = 1; j <= 1;  j++) {
+                int check = temp.charAt(j) + temp.charAt(j+2) + temp.charAt(j+3) + temp.charAt(j+5)  + temp.charAt(j+6);
+                if(check % 2 == 0){
+                    checktwo = 0;
+                }else
+                    checktwo = 1;
+            }
+            //checkthree
+            for (int j = 0; j <= 1; j++) {
+                int check = temp.charAt(j+1) + temp.charAt(j+2) + temp.charAt(j+3) + temp.charAt(j+7);
+                if(check % 2 == 0){
+                    checkthree = 0;
+                }else
+                    checkthree = 1;
+            }
+            //checkfour
+            for (int j = 0; j <= 1; j++) {
+                int check = temp.charAt(j+4) + temp.charAt(j+5) + temp.charAt(j+6) + temp.charAt(j+7);
+                if(check % 2 == 0){
+                    checkfour = 0;
+                }else
+                    checkfour = 1;
+            }
+            System.out.println(checkone + checktwo + checkthree + checkfour);
         }
     }
 }
