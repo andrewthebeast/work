@@ -147,16 +147,16 @@ public class Luna_5_Bitparity {
     }
     
     public static void convert(String [] nameinascii){
+        String[] dummiearray = new String[nameinascii.length];
+        int checkone = 0;
+        String checktwo;
+        String checkthree;
+        int checkfour = 0;
         for (int i = 0; i < nameinascii.length; i++) {
-            int checkone = 0;
-            int checktwo = 0;
-            int checkthree = 0;
-            int checkfour = 0;
-            System.out.println(nameinascii[i]);
             String temp = nameinascii[i];
+            System.out.println(nameinascii[i]);
             //checkone
             for (int j = 1; j <= 1; j++) {
-                System.out.println(j);
                 int check = temp.charAt(j) + temp.charAt(j+2) + temp.charAt(j+4) + temp.charAt(j+6);
                 if(check % 2 == 0){
                     checkone = 0;
@@ -167,27 +167,27 @@ public class Luna_5_Bitparity {
             for (int j = 1; j <= 1;  j++) {
                 int check = temp.charAt(j) + temp.charAt(j+2) + temp.charAt(j+3) + temp.charAt(j+5)  + temp.charAt(j+6);
                 if(check % 2 == 0){
-                    checktwo = 0;
+                    checktwo = "0";
                 }else
-                    checktwo = 1;
+                    checktwo = "1";
             }
             //checkthree
-            for (int j = 0; j <= 1; j++) {
-                int check = temp.charAt(j+1) + temp.charAt(j+2) + temp.charAt(j+3) + temp.charAt(j+7);
+            for (int j = 1; j <= 1; j++) {
+                int check = temp.charAt(j) + temp.charAt(j+1) + temp.charAt(j+2) + temp.charAt(j+6);
                 if(check % 2 == 0){
                     checkthree = 0;
                 }else
                     checkthree = 1;
             }
             //checkfour
-            for (int j = 0; j <= 1; j++) {
-                int check = temp.charAt(j+4) + temp.charAt(j+5) + temp.charAt(j+6) + temp.charAt(j+7);
+            for (int j = 1; j <= 1; j++) {
+                int check = temp.charAt(j+3) + temp.charAt(j+4) + temp.charAt(j+5) + temp.charAt(j+6);
                 if(check % 2 == 0){
                     checkfour = 0;
                 }else
                     checkfour = 1;
             }
-            System.out.println(checkone + checktwo + checkthree + checkfour);
+            dummiearray[i];
         }
     }
 }
