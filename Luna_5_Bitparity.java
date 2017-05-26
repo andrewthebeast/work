@@ -20,6 +20,7 @@ public class Luna_5_Bitparity {
         System.out.println("how many letters are in your name?");
         a = scan.nextInt();
         String[] nameinascii = new String[a];
+        String[] dummiearray = new String[a];
         for (int i = 1; i <= a; i++) {
             System.out.println("What is the " + (i) + " letter in your name.");
             Scanner hue = new Scanner(System.in); //dont worry about it
@@ -34,7 +35,11 @@ public class Luna_5_Bitparity {
                 }
             }
         }
-        convert(nameinascii);
+        convert(nameinascii, dummiearray);
+        System.out.println("Hereis your name in hamming code by letter");
+        for (int i = 0; i < nameinascii.length; i++) {
+            System.out.println(nameinascii[i]);
+        }
     }
     
     public static void makeConverter(){
@@ -146,48 +151,46 @@ public class Luna_5_Bitparity {
         asciicode.add(letterZ);
     }
     
-    public static void convert(String [] nameinascii){
-        String[] dummiearray = new String[nameinascii.length];
-        int checkone = 0;
-        String checktwo;
-        String checkthree;
-        int checkfour = 0;
+    public static void convert(String [] nameinascii, String dummiearray[]){
+        String checkone = "";
+        String checktwo = "";
+        String checkthree = "";
+        String checkfour = "";
+        int check = 0;
         for (int i = 0; i < nameinascii.length; i++) {
             String temp = nameinascii[i];
             System.out.println(nameinascii[i]);
             //checkone
-            for (int j = 1; j <= 1; j++) {
-                int check = temp.charAt(j) + temp.charAt(j+2) + temp.charAt(j+4) + temp.charAt(j+6);
-                if(check % 2 == 0){
-                    checkone = 0;
-                }else
-                    checkone = 1;
-            }
+            check = temp.charAt(0) + temp.charAt(1) + temp.charAt(3) + temp.charAt(4) + temp.charAt(6);
+            if(check % 2 == 0){
+                checkone = "0";
+            }else
+                checkone = "1";
+            check = 0;
             //checktwo
-            for (int j = 1; j <= 1;  j++) {
-                int check = temp.charAt(j) + temp.charAt(j+2) + temp.charAt(j+3) + temp.charAt(j+5)  + temp.charAt(j+6);
-                if(check % 2 == 0){
-                    checktwo = "0";
-                }else
-                    checktwo = "1";
-            }
+            check = temp.charAt(0) + temp.charAt(2) + temp.charAt(3) + temp.charAt(5)  + temp.charAt(6);
+            if(check % 2 == 0){
+                checktwo = "0";
+            }else
+                checktwo = "1";
+            check = 0;
             //checkthree
-            for (int j = 1; j <= 1; j++) {
-                int check = temp.charAt(j) + temp.charAt(j+1) + temp.charAt(j+2) + temp.charAt(j+6);
-                if(check % 2 == 0){
-                    checkthree = 0;
-                }else
-                    checkthree = 1;
-            }
+            check = temp.charAt(1) + temp.charAt(2) + temp.charAt(3) + temp.charAt(7);
+            if(check % 2 == 0){
+                checkthree = "0";
+            }else
+                checkthree = "1";
+            check = 0;
             //checkfour
-            for (int j = 1; j <= 1; j++) {
-                int check = temp.charAt(j+3) + temp.charAt(j+4) + temp.charAt(j+5) + temp.charAt(j+6);
-                if(check % 2 == 0){
-                    checkfour = 0;
-                }else
-                    checkfour = 1;
-            }
-            dummiearray[i];
+            check = temp.charAt(4) + temp.charAt(5) + temp.charAt(6) + temp.charAt(7);
+            if(check % 2 == 0){
+                checkfour = "0";
+            }else
+                checkfour = "1";
+            dummiearray[i] = checkone + checktwo + temp.charAt(0) + checkthree + temp.charAt(1) + temp.charAt(2) + temp.charAt(3) + checkfour + temp.charAt(4) + temp.charAt(5) + temp.charAt(6) + temp.charAt(7);
+        }
+        for (int i = 0; i < nameinascii.length; i++) {
+            nameinascii[i] = dummiearray[i];
         }
     }
 }
