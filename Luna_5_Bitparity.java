@@ -16,29 +16,73 @@ public class Luna_5_Bitparity {
     static ArrayList<ASCIIcode> asciicode = new ArrayList<ASCIIcode>();
     public static void main(String[] args) {
         makeConverter();
-        int a;
-        System.out.println("how many letters are in your name?");
-        a = scan.nextInt();
-        String[] nameinascii = new String[a];
-        String[] dummiearray = new String[a];
-        for (int i = 1; i <= a; i++) {
-            System.out.println("What is the " + (i) + " letter in your name.");
-            Scanner hue = new Scanner(System.in); //dont worry about it
-            String temp = hue.nextLine();
-            nameinascii[i-1] = temp;
-        }
-        System.out.println("Changing your name");
-        for (int i = 0; i < nameinascii.length; i++) {
-            for (int j = 0; j < asciicode.size(); j++) {
-                if(nameinascii[i].equals(asciicode.get(j).asciinum)){
-                    nameinascii[i] = asciicode.get(j).binaryval;
+        System.out.println("Would you like to change your name or check a bit");
+        String ans = scan.nextLine();
+        if (ans.contains("change")) {
+            int a;
+            System.out.println("how many letters are in your name?");
+            a = scan.nextInt();
+            String[] nameinascii = new String[a];
+            String[] dummiearray = new String[a];
+            for (int i = 1; i <= a; i++) {
+                System.out.println("What is the " + (i) + " letter in your name.");
+                Scanner hue = new Scanner(System.in); //dont worry about it
+                String temp = hue.nextLine();
+                nameinascii[i-1] = temp;
+            }
+            for (int i = 0; i < nameinascii.length; i++) {
+                for (int j = 0; j < asciicode.size(); j++) {
+                    if(nameinascii[i].equals(asciicode.get(j).asciinum)){
+                        nameinascii[i] = asciicode.get(j).binaryval;
+                    }
                 }
             }
-        }
-        convert(nameinascii, dummiearray);
-        System.out.println("Hereis your name in hamming code by letter");
-        for (int i = 0; i < nameinascii.length; i++) {
-            System.out.println(nameinascii[i]);
+            convert(nameinascii, dummiearray);
+            System.out.println("Hereis yourThis name in hamming code by letter");
+            for (int i = 0; i < nameinascii.length; i++) {
+                System.out.println(dummiearray[i]);
+            }
+        }else{
+            int a = 1;
+            String[] nameinascii = new String[a];
+            String[] dummiearray = new String[a];
+            String[] theirans = new String[a];
+            for (int i = 1; i <= a; i++) {
+                System.out.println("What is the letter in ascii code you are trying to check.");
+                Scanner hue = new Scanner(System.in); //dont worry about it
+                String temp = hue.nextLine();
+                nameinascii[i-1] = temp;
+            }
+            for (int i = 0; i < nameinascii.length; i++) {
+                for (int j = 0; j < asciicode.size(); j++) {
+                    if(nameinascii[i].equals(asciicode.get(j).asciinum)){
+                        nameinascii[i] = asciicode.get(j).binaryval;
+                    }
+                }
+            }
+            for (int i = 1; i <= a; i++) {
+                System.out.println("Please enter what you got.");
+                Scanner hue = new Scanner(System.in); //dont worry about it
+                String temp = hue.nextLine();
+                theirans[i-1] = temp;
+            }
+            convert(nameinascii, dummiearray);
+            System.out.println("Here is the letter the way it should be");
+            for (int i = 0; i < nameinascii.length; i++) {
+                System.out.println(dummiearray[i]);
+            }
+            int found = 0;
+            for (int j = 0; j < nameinascii[a].length(); j++) {
+                System.out.println(j);
+                if (nameinascii[a].charAt(j) != theirans[a].charAt(j)) {
+                    System.out.println("good");
+                }else{
+                    System.out.println("bad");
+                    found = j;
+                    break;
+                }
+            }
+            System.out.println("The bit at " + found + " is wrong.");
         }
     }
     
@@ -159,7 +203,6 @@ public class Luna_5_Bitparity {
         int check = 0;
         for (int i = 0; i < nameinascii.length; i++) {
             String temp = nameinascii[i];
-            System.out.println(nameinascii[i]);
             //checkone
             check = temp.charAt(0) + temp.charAt(1) + temp.charAt(3) + temp.charAt(4) + temp.charAt(6);
             if(check % 2 == 0){
@@ -188,9 +231,6 @@ public class Luna_5_Bitparity {
             }else
                 checkfour = "1";
             dummiearray[i] = checkone + checktwo + temp.charAt(0) + checkthree + temp.charAt(1) + temp.charAt(2) + temp.charAt(3) + checkfour + temp.charAt(4) + temp.charAt(5) + temp.charAt(6) + temp.charAt(7);
-        }
-        for (int i = 0; i < nameinascii.length; i++) {
-            nameinascii[i] = dummiearray[i];
         }
     }
 }
